@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { Fondo, Container, DivForm } from '../styleds/LoginStyled';
 import { useDispatch } from 'react-redux';
 import { RegistroEmailPasswordName } from '../actions/actionRegister';
+import { NavbarPublic } from './Navbar'
 
 const Registro = () => {
 
@@ -25,6 +26,7 @@ const Registro = () => {
 
   return (
     <Fondo>
+        <NavbarPublic />
         <Container>
             <h3>Sign up</h3>
             <form onSubmit={handleRegistro}>
@@ -46,18 +48,18 @@ const Registro = () => {
                     <svg width="18" height="18" fill="white" className="bi bi-lock" viewBox="0 0 16 16">
                         <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2zM5 8h6a1 1 0 0 1 1 1v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"/>
                     </svg>
-                    <input type="password"  placeholder="Password"  name="Password1" value={password1} onChange={handledInputChange} />
+                    <input type="password"  placeholder="Password"  name="password1" value={password1} onChange={handledInputChange} />
                 </DivForm>
 
                 <DivForm>
                     <svg width="18" height="18" fill="white" className="bi bi-lock" viewBox="0 0 16 16">
                         <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2zM5 8h6a1 1 0 0 1 1 1v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"/>
                     </svg>
-                    <input type="password"  placeholder="Confirm password"  name="Password2" value={password2} onChange={handledInputChange} />
+                    <input type="password"  placeholder="Confirm password"  name="password2" value={password2} onChange={handledInputChange} />
                 </DivForm>
 
                 <button> Sign up </button> <br/> <br/>
-                <p><Link to="/" style={{color:'RGBA(254,217,65,0.63)'}}> Sign in ?</Link></p>
+                <p><Link to="/login" style={{color:'RGBA(254,217,65,0.63)'}}> Sign in ?</Link></p>
             </form>
         </Container>
     </Fondo>

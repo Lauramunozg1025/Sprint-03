@@ -9,8 +9,6 @@ export const useForm = (initalState = {}) => {
             ...values,
             [target.name]: target.value
         });
-
-        console.log(values);
     }
 
      const handleReset = () => {

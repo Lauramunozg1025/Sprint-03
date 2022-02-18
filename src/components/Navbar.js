@@ -1,24 +1,26 @@
 import React, { useState, useEffect } from 'react';
 import Card from './Cards';
 import { API_URL } from '../helpers/url'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import {  Navbar, Nav, Container, Button, Form, FormControl } from 'react-bootstrap'
-import { ContainerSlider, ListaSlider, MenuSlider, BtnVerAhora, BtnVerDespues } from '../styleds/CarruselStyled';
+import { useDispatch } from 'react-redux';
+import { LogOut } from '../actions/actionLogin';
 
 export const NavPrincipal = () => {
   return (
     <div>
         <Navbar expand="lg" variant="dark" >
           <Container fluid>
-            <Navbar.Brand > <img src='https://res.cloudinary.com/dvtpbvs4w/image/upload/v1644772455/Sprint-03/logo-blockBuster_kx66gu.png' alt="logo"/> </Navbar.Brand>
+            <Link to='/home'><Navbar.Brand > <img src='https://res.cloudinary.com/dvtpbvs4w/image/upload/v1644772455/Sprint-03/logo-blockBuster_kx66gu.png' alt="logo"/> </Navbar.Brand></Link>
             <Navbar.Toggle aria-controls="navbarScroll" />
             <Navbar.Collapse id="navbarScroll">
               <Nav className="me-auto my-2 my-lg-0" style={{ maxHeight: '100px' }} navbarScroll >
-                <Nav.Link href="#action1">Todas</Nav.Link>
-                <Nav.Link href="#action2">Mas valoradas</Nav.Link>
-                <Nav.Link href="#action3">Menos valoradas</Nav.Link>
+                <Link to="/home">Todas</Link>
+                <Link to="/mas-valoradas">Mas valoradas</Link>
+                <Link to="/menos-valoradas">Menos valoradas</Link>
+                <Link to="/agregarMovie">Agregar Movie </Link>
               </Nav>
-
+              
               <Form className="d-flex">
                 <FormControl
                   type="search"
@@ -36,76 +38,16 @@ export const NavPrincipal = () => {
             </Navbar.Collapse>
           </Container>
         </Navbar>
-
-        <header>
-                <ContainerSlider>
-                    <ListaSlider>
-                        <li id="slide1">
-                            <img src="https://res.cloudinary.com/dvtpbvs4w/image/upload/v1644784619/Sprint-03/mulan_xewrr5.png" alt="Mulan"/>
-                            <BtnVerAhora>
-                              <svg width="20" height="20" fill="currentColor" className="bi bi-play-fill" viewBox="0 0 16 16">
-                                  <path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z"/>
-                              </svg> VER AHORA
-                          </BtnVerAhora>
-                          <BtnVerDespues>
-                              <svg width="20" height="20" fill="currentColor" className="bi bi-plus-lg" viewBox="0 0 16 16">
-                                  <path fillRule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z"/>
-                              </svg> VER DESPUES
-                          </BtnVerDespues>
-                        </li>
-
-                        <li id="slide2">
-                          <img src="https://res.cloudinary.com/dvtpbvs4w/image/upload/v1644784619/Sprint-03/raya_lngs8n.png" alt="Raya"/>
-                          <BtnVerAhora>
-                                <svg width="20" height="20" fill="currentColor" className="bi bi-play-fill" viewBox="0 0 16 16">
-                                    <path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z"/>
-                                </svg> VER AHORA
-                            </BtnVerAhora>
-                            <BtnVerDespues>
-                                <svg width="20" height="20" fill="currentColor" className="bi bi-plus-lg" viewBox="0 0 16 16">
-                                    <path fillRule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z"/>
-                                </svg> VER DESPUES
-                            </BtnVerDespues>
-                        </li>
-
-                        <li id="slide3">
-                          <img src="https://res.cloudinary.com/dvtpbvs4w/image/upload/v1644784620/Sprint-03/unidos_qzn2xw.png" alt="Unidos"/>
-                          <BtnVerAhora>
-                                <svg width="20" height="20" fill="currentColor" className="bi bi-play-fill" viewBox="0 0 16 16">
-                                    <path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z"/>
-                                </svg> VER AHORA
-                            </BtnVerAhora>
-                            <BtnVerDespues>
-                                <svg width="20" height="20" fill="currentColor" className="bi bi-plus-lg" viewBox="0 0 16 16">
-                                    <path fillRule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z"/>
-                                </svg> VER DESPUES
-                            </BtnVerDespues>
-                        </li>
-                    </ListaSlider>
-
-                </ContainerSlider>
-
-                <MenuSlider>
-                    <li>
-                        <a href="#slide1">1</a>
-                    </li>
-
-                    <li>
-                    <a href="#slide2">2</a>
-                    </li>
-
-                    <li>
-                    <a href="#slide3">3</a>
-                    </li>
-                </MenuSlider>
-        </header>
     </div>
   )
 }
 
 export const NavbarPublic = () => {
 
-  const [movies, setMovies] = useState()
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const [movies, setMovies] = useState();
 
   useEffect(() => {
       getMovies()
@@ -116,6 +58,11 @@ export const NavbarPublic = () => {
       const data = await resp.json()
       const results = data.results;
       setMovies(results)
+  }
+
+  const handleLogOut = () =>{
+    dispatch(LogOut())
+    navigate('/login')
   }
 
   return(
@@ -138,6 +85,8 @@ export const NavbarPublic = () => {
         </Link>
 
         </Navbar.Collapse>
+
+        <Button onClick={handleLogOut}>Logout</Button>
       </Container>
     </Navbar>
 

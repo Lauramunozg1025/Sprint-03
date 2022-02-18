@@ -1,6 +1,26 @@
-import { getAuth, signInWithPopup, signInWithEmailAndPassword } from 'firebase/auth';
+import { getAuth, signInWithPopup, signInWithEmailAndPassword, signOut } from 'firebase/auth';
 import { google, facebook } from '../firebase/firebaseConfig';
 import { types }from '../types/types';
+
+export const LogOut = () => {
+    return(dispatch) => {
+        const auth = getAuth();
+        signOut(auth)
+        .then(user => {
+            dispatch(LogOutSincrono())
+            console.log('chao')
+        })
+        .catch(error =>{
+            console.log( error )
+        })
+    }
+}
+
+export const LogOutSincrono = () => {
+    return{
+        type: types.logout
+    }
+}
 
 export const LoginEmailPassword = (email, password) => {
     return(dispatch) => {

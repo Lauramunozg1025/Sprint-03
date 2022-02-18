@@ -3,3 +3,9 @@ export const types = {
     logout: 'logout',
     register: 'register'
 }
+
+export const typesCrud = {
+    agregar: 'agregar',
+    listar: 'listar',
+    delete: 'delete'
+}

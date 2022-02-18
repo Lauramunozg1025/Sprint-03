@@ -1,18 +1,15 @@
 import React from 'react'
 import { useForm }from '../hooks/useForm'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { Fondo, Container, ContentRedes, DivForm } from '../styleds/LoginStyled'
 import { useDispatch } from 'react-redux'
 import { LoginEmailPassword, LoginGoogle, LoginFacebook } from '../actions/actionLogin'
+// import { NavbarPublic } from './Navbar'
 
 const Login = () => {
 
     const dispatch = useDispatch()
-
-    // const [values, handledInputChange] = useForm({
-    //     email: 'tata@gmail.com',
-    //     password: '123456'
-    // })
+    const navigate = useNavigate()
 
     const [ values, handleInputChange ] = useForm({
         email: '',
@@ -21,25 +18,27 @@ const Login = () => {
 
     const {email,password} = values;
 
-    // const { email, password } = values;
-
     const handleLogin = (e) => {
         e.preventDefault();
         dispatch(LoginEmailPassword(email, password))
+        navigate('/')
     }
 
     const handleGoogle = () =>{
         dispatch(LoginGoogle())
+        navigate('/')
     }
 
     const handleFacebook = () =>{
         dispatch(LoginFacebook())
+        navigate('/')
     }
 
     
 
   return (
     <Fondo>
+        {/* <NavbarPublic /> */}
         <Container>
             <h3>Sign In With</h3>
 
