@@ -55,7 +55,7 @@ export const listarSincrono = (movies) => {
 
 export const agregarAsincrono = (newmovie) => {
     return(dispatch) => {
-
+        console.log('me ejecute')
         addDoc(collection(db,"movies"),newmovie) 
         .then(resp => {
             dispatch(agregarSincrono(newmovie)) 

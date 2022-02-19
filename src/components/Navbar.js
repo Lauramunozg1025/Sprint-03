@@ -1,12 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import Card from './Cards';
 import { API_URL } from '../helpers/url'
-import { Link, useNavigate } from 'react-router-dom'
-import {  Navbar, Nav, Container, Button, Form, FormControl } from 'react-bootstrap'
+import { Link, NavLink, useNavigate } from 'react-router-dom'
+import {  Navbar, Nav,  Container, Button, Form, FormControl } from 'react-bootstrap'
 import { useDispatch } from 'react-redux';
 import { LogOut } from '../actions/actionLogin';
 
 export const NavPrincipal = () => {
+
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const handleLogOut = () =>{
+    dispatch(LogOut())
+    navigate('/login')
+  }
+
   return (
     <div>
         <Navbar expand="lg" variant="dark" >
@@ -15,13 +24,14 @@ export const NavPrincipal = () => {
             <Navbar.Toggle aria-controls="navbarScroll" />
             <Navbar.Collapse id="navbarScroll">
               <Nav className="me-auto my-2 my-lg-0" style={{ maxHeight: '100px' }} navbarScroll >
-                <Link to="/home">Todas</Link>
-                <Link to="/mas-valoradas">Mas valoradas</Link>
-                <Link to="/menos-valoradas">Menos valoradas</Link>
-                <Link to="/agregarMovie">Agregar Movie </Link>
+                <NavLink to="/home" style={{color:'gray', textDecoration:'none', marginRight:'15px'}}>Todas</NavLink>
+                <NavLink to="/mas-valoradas" style={{color:'gray', textDecoration:'none', marginRight:'15px' }}>Mas valoradas</NavLink>
+                <NavLink to="/menos-valoradas" style={{color:'gray', textDecoration:'none', marginRight:'15px' }}>Menos valoradas</NavLink>
+                <NavLink to="/agregarMovie" style={{color:'gray', textDecoration:'none', marginRight:'15px' }}>Agregar Movie </NavLink>
               </Nav>
               
               <Form className="d-flex">
+              <Button onClick={handleLogOut}>Logout</Button>
                 <FormControl
                   type="search"
                   placeholder="Search"
@@ -44,9 +54,6 @@ export const NavPrincipal = () => {
 
 export const NavbarPublic = () => {
 
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
-
   const [movies, setMovies] = useState();
 
   useEffect(() => {
@@ -58,11 +65,6 @@ export const NavbarPublic = () => {
       const data = await resp.json()
       const results = data.results;
       setMovies(results)
-  }
-
-  const handleLogOut = () =>{
-    dispatch(LogOut())
-    navigate('/login')
   }
 
   return(
@@ -86,7 +88,7 @@ export const NavbarPublic = () => {
 
         </Navbar.Collapse>
 
-        <Button onClick={handleLogOut}>Logout</Button>
+       
       </Container>
     </Navbar>
 

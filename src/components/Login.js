@@ -4,7 +4,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import { Fondo, Container, ContentRedes, DivForm } from '../styleds/LoginStyled'
 import { useDispatch } from 'react-redux'
 import { LoginEmailPassword, LoginGoogle, LoginFacebook } from '../actions/actionLogin'
-// import { NavbarPublic } from './Navbar'
+
 
 const Login = () => {
 
@@ -38,7 +38,6 @@ const Login = () => {
 
   return (
     <Fondo>
-        {/* <NavbarPublic /> */}
         <Container>
             <h3>Sign In With</h3>
 

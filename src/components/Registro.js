@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import { Fondo, Container, DivForm } from '../styleds/LoginStyled';
 import { useDispatch } from 'react-redux';
 import { RegistroEmailPasswordName } from '../actions/actionRegister';
-import { NavbarPublic } from './Navbar'
 
 const Registro = () => {
 
@@ -26,7 +25,6 @@ const Registro = () => {
 
   return (
     <Fondo>
-        <NavbarPublic />
         <Container>
             <h3>Sign up</h3>
             <form onSubmit={handleRegistro}>

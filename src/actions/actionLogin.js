@@ -23,7 +23,7 @@ export const LogOutSincrono = () => {
 }
 
 export const LoginEmailPassword = (email, password) => {
-    return(dispatch) => {
+    return (dispatch) => {
         const auth = getAuth();
         signInWithEmailAndPassword(auth, email, password)
         .then(({user}) => {
@@ -31,6 +31,7 @@ export const LoginEmailPassword = (email, password) => {
             console.log('Entraste')
         })
         .catch(error =>{
+            console.log(error)
             console.log('El usuario no existe')
         })
     }

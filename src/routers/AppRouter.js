@@ -1,72 +1,63 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter , Routes, Route } from 'react-router-dom';
-// import { getAuth, onAuthStateChanged } from 'firebase/auth';
-// import { LoginEmailPassword } from "../actions/actionLogin";
-// import {useDispatch} from 'react-redux';
-// import { DashboardRouter } from './DashboardRouter'
-// import { PublicRoutes } from './PublicRoutes'
-// import { PrivateRoutes } from './PrivateRoutes'
+import { Routes, Route } from 'react-router-dom';
+import { getAuth, onAuthStateChanged } from 'firebase/auth';
+import { LoginEmailPassword } from "../actions/actionLogin";
+import {useDispatch} from 'react-redux';
+import { DashboardRouter } from './DashboardRouter'
+import { PublicRoutes } from './PublicRoutes'
+import { PrivateRoutes } from './PrivateRoutes'
 import Login from '../components/Login'
 import Registro from '../components/Registro';
-import { Home } from '../components/Home';
-import { AgregarMovies } from '../components/AgregarMovies';
-import {NavPrincipal} from '../components/Navbar';
+import { NavbarPublic } from '../components/Navbar'
 
 const AppRouter = () => {
 
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
-  // const [checking, setChecking] = useState(true);
-  // const [login, setLogin] = useState(false)
+  const [checking, setChecking] = useState(true);
+  const [login, setLogin] = useState(false)
 
-  // useEffect(() => {
-  //   const auth = getAuth()
-  //   onAuthStateChanged(auth, (user) => {
-  //     if (user?.uid) {
-  //       dispatch(LoginEmailPassword(user.uid,user.displayName));
-  //       setLogin(true)
-  //     }else {
-  //       setLogin(false)
-  //     }
-  //     setChecking(false)
-  //   })
-  //   setChecking(true)
-  // },[setChecking ,setLogin ])
+  useEffect(() => {
+    const auth = getAuth()
+    onAuthStateChanged(auth, (user) => {
+      if (user?.uid) {
+        dispatch(LoginEmailPassword(user.uid,user.displayName));
+        console.log(user)
+        setLogin(true)
 
-  // if(checking) {
-  //   <h1>Cargando...</h1>
-  // }else {
-  //   setChecking(true)
-  // }
+      }else {
+        setLogin(false)
+
+      }
+      setChecking(false)
+    })
+    // setChecking(true)
+  },[dispatch, setChecking ,setLogin ])
+
+  if(checking) {
+    <h1>Cargando...</h1>
+    
+  }else {
+    setChecking(true)
+  }
 
   return (
-      // <BrowserRouter >
-      //   <Routes>
-      //       <Route path="/login" element={<PublicRoutes isAutenticated ={login}>
-      //         <Login/>
-      //       </PublicRoutes>}/> 
+        <Routes>
+            <Route path="/login" element={<PublicRoutes isAutenticated ={login}>
+            <NavbarPublic />
+              <Login/>
+            </PublicRoutes>}/> 
 
-      //       <Route path="/registrarse" element={<PublicRoutes isAutenticated ={login}>
-      //         <Registro />
-      //       </PublicRoutes>}/> 
+            <Route path="/registrarse" element={<PublicRoutes isAutenticated ={login}>
+            <NavbarPublic />
+              <Registro />
+            </PublicRoutes>}/> 
 
-      //        <Route path="/" element={<PrivateRoutes isAutenticated ={Login}>
-      //          <DashboardRouter/>
-      //        </PrivateRoutes>}/>
-      //   </Routes>
-      // </BrowserRouter>
-
-<BrowserRouter>
-<NavPrincipal />
-<Routes>
-    <Route path="/login" element={<Login />}/> 
-    <Route path="/registrarse" element={<Registro />}/> 
-    <Route path="/home" element={<Home />}/> 
-     <Route path="/agregarMovie" element={<AgregarMovies />}/>
-     {/* <Route path="/" element={<DashboardRouter />}/> */}
-</Routes>
-</BrowserRouter>
-  );
+             <Route path="/*" element={<PrivateRoutes isAutenticated ={login}>
+               <DashboardRouter/>
+             </PrivateRoutes>}/>
+        </Routes>
+  )
 }
 
 export default AppRouter

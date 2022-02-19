@@ -2,23 +2,26 @@ import styled from 'styled-components';
 
 export const H1 = styled.h1 `
     color: RGBA(245,245,245,0.85);
+    margin-top: 50px;
     text-align: center;
 `
 
 export const DivImagen = styled.div `
 
-    & button {
+    & div {
         background-color: rgb(0, 0, 0, 0.70);
+        text-align: center;
         border-radius: 10px;
         border: 1px solid white;
         color: white;
         width: 550px;
         font-size: 18px;
         margin: 15px 0 ;
+        margin-left:25px;
     }
 
     
-    & button:hover {
+    & div:hover {
             border: 1px solid #FED941;
             color: #FED941;
         }
@@ -27,12 +30,14 @@ export const DivImagen = styled.div `
 export const DivInputs = styled.div `
     & label {
         color: white;
+        margin-left:25px;
     }
 
     & input {
         border-radius: 8px;
         border: 1px solid gray;
         margin-bottom: 15px;
+        margin-left:25px;
         background: none;
         width: 550px;
         color: lightgray;

@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom'
 import { useFormik } from 'formik';
 import { useDispatch } from 'react-redux';
 import { agregarAsincrono, listarAsincrono } from '../actions/actionAgregar';
@@ -12,7 +13,7 @@ export const AgregarMovies = () =>{
 
     useEffect(() => {
         dispatch(listarAsincrono())
-    }, [])
+    })
 
     const formik = useFormik({
         initialValues: {
@@ -49,17 +50,17 @@ export const AgregarMovies = () =>{
     return(
         <>
             <div>
-                <div style={{float: 'right', width: '600px', margin: '50px'}}>
+                <div style={{float: 'right', width: '600px', height: '700px', margin: '50px'}}>
                     <form onSubmit={formik.handleSubmit} >
                         <H1>Agregar Movies</H1>
                         <div>
                             <DivImagen >
                                 <input id="fileSelector" type="file" name="img" style={{ display: 'none' }} onChange={handleFileChanged} />
-                                <button onClick={handlePictureClick} >
+                                <div onClick={handlePictureClick} >
                                     <svg width="18" height="18" fill="currentColor" className="bi bi-folder2-open" viewBox="0 0 16 16">
                                         <path d="M1 3.5A1.5 1.5 0 0 1 2.5 2h2.764c.958 0 1.76.56 2.311 1.184C7.985 3.648 8.48 4 9 4h4.5A1.5 1.5 0 0 1 15 5.5v.64c.57.265.94.876.856 1.546l-.64 5.124A2.5 2.5 0 0 1 12.733 15H3.266a2.5 2.5 0 0 1-2.481-2.19l-.64-5.124A1.5 1.5 0 0 1 1 6.14V3.5zM2 6h12v-.5a.5.5 0 0 0-.5-.5H9c-.964 0-1.71-.629-2.174-1.154C6.374 3.334 5.82 3 5.264 3H2.5a.5.5 0 0 0-.5.5V6zm-.367 1a.5.5 0 0 0-.496.562l.64 5.124A1.5 1.5 0 0 0 3.266 14h9.468a1.5 1.5 0 0 0 1.489-1.314l.64-5.124A.5.5 0 0 0 14.367 7H1.633z"/>
                                     </svg> Imagen
-                                </button>
+                                </div>
                             </DivImagen>
                             <DivInputs >
                                 <label htmlFor="documento">Titulo de la pelicula</label><br/>
@@ -90,11 +91,8 @@ export const AgregarMovies = () =>{
                             </DivInputs>
                             <br/>
                             <div style={{width: '550px', textAlign: 'center'}}>
-                                <ButtonSave value="GUARDAR" type="submit" className="btn btn-outline-dark" />
+                                <Link to='/agregarMovie'><ButtonSave value="GUARDAR" type="submit" className="btn btn-outline-dark" onClick='reset' /></Link>
                             </div>
-                            {/* <div>
-                                <button >Logout</button>
-                            </div> */}
 
                         </div>
                     </form>
