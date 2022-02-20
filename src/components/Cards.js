@@ -1,18 +1,36 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { DivCard, ContainerCard, Modal, ContentModal, Padre3D, Hijo3D, InfoPelicula, BtnVerAhora, BtnVerDespues } from '../styleds/cardsStyleds';
 
 const Card = ({
+    id,
     title,
     poster_path,
     vote_average,
     overview,
-    release_date,
+    release_date
 
 }) => {
 
+    const [movie, setMovie] = useState();
+    const [tiempo, setTiempo] = useState()
+
+    useEffect(() => {
+        nameGenero()
+    })
+
+    const nameGenero = async  () => {
+        const resp = await fetch("https://api.themoviedb.org/3/movie/" + id + "?api_key=d84c76a56f9e7906b35cbc70d7577635&language=es-ES")
+        const data = await resp.json()
+        const result = data.genres
+        setTiempo(((data.runtime)/60).toFixed(2))
+        setMovie(result[0].name)
+    }
+
+    // console.log(movie)
+
     const [modal, setModal] = useState(false);
 
-    const handleOnClick = (estado) => {
+    const handleOnClick = (estado) => { 
         setModal(estado)
     }
 
@@ -64,8 +82,8 @@ const Card = ({
 
                                     <ul>
                                         <li style={{listStyle: 'none'}}> {release_date} </li>
-                                        <li> genero </li>
-                                        <li> duracion </li>
+                                        <li>{movie} </li>
+                                        <li>{tiempo} h/m</li>
                                     </ul>
 
                                     <BtnVerAhora>

@@ -91,7 +91,7 @@ export const AgregarMovies = () =>{
                             </DivInputs>
                             <br/>
                             <div style={{width: '550px', textAlign: 'center'}}>
-                                <Link to='/agregarMovie'><ButtonSave value="GUARDAR" type="submit" className="btn btn-outline-dark" onClick='reset' /></Link>
+                                <Link to='/agregarMovie'><ButtonSave value="GUARDAR" type="submit" className="btn btn-outline-dark"/></Link>
                             </div>
 
                         </div>

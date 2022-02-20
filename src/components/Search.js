@@ -3,9 +3,10 @@ import Card from './Cards';
 // import { API_URL } from '../helpers/url';
 import Carrusel from './Carrusel';
 
-export const Home = () => {
+export const Search = () => {
 
     const [movies, setMovies] = useState()
+    const [buscador, setBuscador ] = useState()
 
     // Creamos el observador 
 
@@ -15,7 +16,7 @@ export const Home = () => {
 
     
     const getMovies = async () => {
-        let pagina = 2
+        let pagina = 1
         try {
             const resp = await fetch(`https://api.themoviedb.org/3/movie/popular?api_key=d84c76a56f9e7906b35cbc70d7577635&language=es-ES&page=${pagina}`)  
             if (resp.status === 200) {
@@ -37,15 +38,30 @@ export const Home = () => {
         }
     }
 
+    
+
+    const filter = (busqueda) => {
+        const title = movies.title
+        let resultadoBusqueda = title.filter((elemento) => {
+            if(busqueda == " "){
+                return (" ")
+            }else {
+                if(elemento.title.tolwerCase().includes(busqueda.tolwerCase())){
+                    return elemento
+                }
+            }
+        })
+        setBuscador(resultadoBusqueda)
+    }
 
     return(
         <div>
             <Carrusel />
             <main style={{margin: '90px'}}>
-                <h1 style={{color: 'white'}}>Todas las peliculas</h1>
+                <h1 style={{color: 'white'}}>Resultados de la busqueda</h1>
                <div>
                     {
-                        movies?.map(movie => (
+                        buscador?.map(movie => (
                             <Card key={movie.id}
                                 {...movie} />
                         ))

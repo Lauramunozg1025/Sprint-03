@@ -31,7 +31,6 @@ export const LoginEmailPassword = (email, password) => {
             console.log('Entraste')
         })
         .catch(error =>{
-            console.log(error)
             console.log('El usuario no existe')
         })
     }
