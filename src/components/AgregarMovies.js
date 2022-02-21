@@ -63,30 +63,30 @@ export const AgregarMovies = () =>{
                                 </div>
                             </DivImagen>
                             <DivInputs >
-                                <label htmlFor="documento">Titulo de la pelicula</label><br/>
+                                <label for="documento">Titulo de la pelicula</label><br/>
                                 <input type="text" name="title" id="title" placeholder="Title" onChange={formik.handleChange} />
                             </DivInputs>
                             <DivInputs >
-                                <label htmlFor="nombres">Genero</label><br/>
+                                <label for="nombres">Genero</label><br/>
                                 <input type="text" name="genero" id="vote" placeholder="Genero" onChange={formik.handleChange} />
                             </DivInputs>
                             <DivInputs >
-                                <label htmlFor="nombres">Calificacion (del 1 al 10)</label><br/>
+                                <label for="nombres">Calificacion (del 1 al 10)</label><br/>
                                 <input type="text" name="vote" id="vote" placeholder="8.5" onChange={formik.handleChange} />
                             </DivInputs>
 
                             <DivInputs >
-                                <label htmlFor="apellidos">Descripcion</label><br/>
+                                <label for="apellidos">Descripcion</label><br/>
                                 <input type="text" name="descripcion" id="descripcion" placeholder="Sipnopsis" onChange={formik.handleChange} />
                             </DivInputs>
 
                             <DivInputs >
-                                <label htmlFor="telefono">Duracion</label><br/>
+                                <label for="telefono">Duracion</label><br/>
                                 <input type="text" name="duracion" id="duracion" placeholder="1h" onChange={formik.handleChange} />
                             </DivInputs>
 
                             <DivInputs className="form-group col-md-4">
-                                <label htmlFor="celular">Fecha de lanzamiento</label><br/>
+                                <label for="celular">Fecha de lanzamiento</label><br/>
                                 <input type="date" name="fechaLanzamiento" id="fechaLanzamiento" onChange={formik.handleChange} />
                             </DivInputs>
                             <br/>

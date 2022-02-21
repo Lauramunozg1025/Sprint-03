@@ -38,25 +38,10 @@ export const Search = () => {
         }
     }
 
-    
-
-    const filter = (busqueda) => {
-        const title = movies.title
-        let resultadoBusqueda = title.filter((elemento) => {
-            if(busqueda == " "){
-                return (" ")
-            }else {
-                if(elemento.title.tolwerCase().includes(busqueda.tolwerCase())){
-                    return elemento
-                }
-            }
-        })
-        setBuscador(resultadoBusqueda)
-    }
 
     return(
         <div>
-            <Carrusel />
+            <Carrusel/>
             <main style={{margin: '90px'}}>
                 <h1 style={{color: 'white'}}>Resultados de la busqueda</h1>
                <div>

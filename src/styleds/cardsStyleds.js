@@ -9,6 +9,7 @@ export const ContainerCard = styled.div `
     margin: 20px;
     width: 220px;
     height: 330px;
+    min-height: 330px;
     cursor: pointer;
 
     & div {
@@ -19,6 +20,7 @@ export const ContainerCard = styled.div `
         position: absolute;
         width: 220px;
         height: 330px;
+        min-height: 330px;
     }
 
     & span {

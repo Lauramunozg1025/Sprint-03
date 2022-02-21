@@ -17,20 +17,22 @@ export const ListaSlider = styled.ul `
     }
 
     & li img {
-        width: 1500px;
+        width: 1350px;
+        height: 510px;
         margin: 16px;
         object-fit: cover;
+        object-position: top;
     }
 
     @keyframes cambio {
         0% {margin-left: 0;}
         20% {margin-left: 0;}
-        25% {margin-left: -75%;}
-        45% {margin-left: -75%;}
-        50% {margin-left: -160%;}
-        70% {margin-left: -160%;}
-        75% {margin-left: -75%;}
-        95% {margin-left: -75%;}
+        25% {margin-left: -65%;}
+        45% {margin-left: -65%;}
+        50% {margin-left: -130%;}
+        70% {margin-left: -130%;}
+        75% {margin-left: -65%;}
+        95% {margin-left: -65%;}
         100% {margin-left: 0;}
     } 
 
@@ -71,7 +73,7 @@ export const BtnVerAhora = styled.button`
     position: absolute;
     z-index: 1;
     left: 10px;
-    top: 310px;
+    top: 450px;
 `
 
 export const BtnVerDespues = styled.button`
@@ -87,5 +89,5 @@ export const BtnVerDespues = styled.button`
     position: absolute;
     z-index: 1; 
     left: 300px;
-    top: 310px;
+    top: 450px;
 `

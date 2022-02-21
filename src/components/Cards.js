@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { DivCard, ContainerCard, Modal, ContentModal, Padre3D, Hijo3D, InfoPelicula, BtnVerAhora, BtnVerDespues } from '../styleds/cardsStyleds';
+import { Link } from 'react-router-dom'
 
 const Card = ({
     id,
@@ -86,11 +87,13 @@ const Card = ({
                                         <li>{tiempo} h/m</li>
                                     </ul>
 
-                                    <BtnVerAhora>
-                                        <svg width="20" height="20" fill="currentColor" className="bi bi-play-fill" viewBox="0 0 16 16">
-                                            <path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z"/>
-                                        </svg> VER AHORA
-                                    </BtnVerAhora>
+                                    <Link to="/trailer">
+                                        <BtnVerAhora>
+                                            <svg width="20" height="20" fill="currentColor" className="bi bi-play-fill" viewBox="0 0 16 16">
+                                                <path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z"/>
+                                            </svg> VER AHORA
+                                        </BtnVerAhora>
+                                    </Link>
 
                                     <BtnVerDespues>
                                         <svg width="20" height="20" fill="currentColor" className="bi bi-plus-lg" viewBox="0 0 16 16">
