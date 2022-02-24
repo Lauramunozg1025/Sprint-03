@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom'
 import { useFormik } from 'formik';
 import { useDispatch } from 'react-redux';
 import { agregarAsincrono, listarAsincrono } from '../actions/actionAgregar';
@@ -63,35 +62,35 @@ export const AgregarMovies = () =>{
                                 </div>
                             </DivImagen>
                             <DivInputs >
-                                <label for="documento">Titulo de la pelicula</label><br/>
+                                <label>Titulo de la pelicula</label><br/>
                                 <input type="text" name="title" id="title" placeholder="Title" onChange={formik.handleChange} />
                             </DivInputs>
                             <DivInputs >
-                                <label for="nombres">Genero</label><br/>
+                                <label>Genero</label><br/>
                                 <input type="text" name="genero" id="vote" placeholder="Genero" onChange={formik.handleChange} />
                             </DivInputs>
                             <DivInputs >
-                                <label for="nombres">Calificacion (del 1 al 10)</label><br/>
+                                <label>Calificacion (del 1 al 10)</label><br/>
                                 <input type="text" name="vote" id="vote" placeholder="8.5" onChange={formik.handleChange} />
                             </DivInputs>
 
                             <DivInputs >
-                                <label for="apellidos">Descripcion</label><br/>
+                                <label>Descripcion</label><br/>
                                 <input type="text" name="descripcion" id="descripcion" placeholder="Sipnopsis" onChange={formik.handleChange} />
                             </DivInputs>
 
                             <DivInputs >
-                                <label for="telefono">Duracion</label><br/>
+                                <label>Duracion</label><br/>
                                 <input type="text" name="duracion" id="duracion" placeholder="1h" onChange={formik.handleChange} />
                             </DivInputs>
 
                             <DivInputs className="form-group col-md-4">
-                                <label for="celular">Fecha de lanzamiento</label><br/>
+                                <label>Fecha de lanzamiento</label><br/>
                                 <input type="date" name="fechaLanzamiento" id="fechaLanzamiento" onChange={formik.handleChange} />
                             </DivInputs>
                             <br/>
                             <div style={{width: '550px', textAlign: 'center'}}>
-                                <Link to='/agregarMovie'><ButtonSave value="GUARDAR" type="submit" className="btn btn-outline-dark"/></Link>
+                                <ButtonSave value="GUARDAR" type="submit" className="btn btn-outline-dark"/>
                             </div>
 
                         </div>

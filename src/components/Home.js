@@ -12,7 +12,6 @@ export const Home = () => {
 
     const observador = React.useRef(new IntersectionObserver((entradas) => {
         const first = entradas[0]
-        console.log(first)
         if(first.isIntersecting){
             pagina ++
             getMovies()
@@ -81,7 +80,7 @@ export const Home = () => {
                         ))
                     }
                </div>
-               <div ref={setElement} >Hola</div>
+               <div ref={setElement} ></div>
             </main>
         </div>
     )

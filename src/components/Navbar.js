@@ -29,10 +29,10 @@ export const NavPrincipal = () => {
                 <NavLink to="/menos-valoradas" style={{color:'gray', textDecoration:'none', marginRight:'15px' }}>Menos valoradas</NavLink>
                 <NavLink to="/agregarMovie" style={{color:'gray', textDecoration:'none', marginRight:'15px' }}>Agregar Movie </NavLink>
               </Nav>
-              
+              <Button onClick={handleLogOut} style={{background: 'red'}}>Logout</Button>
               <Form className="d-flex">
-              <Link to="/search">
-              <Button onClick={handleLogOut}>Logout</Button>
+              
+              <Link to="/search" style={{textDecoration: 'none', display:'flex', margin: '15px'}}>
                 <FormControl
                   type="search"
                   placeholder="Search"

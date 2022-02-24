@@ -131,3 +131,50 @@ export const BtnVerDespues = styled.button`
     color: #FED941;
 
 `
+
+export const ModalTrailer = styled.div`
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    background: #0F0E17;
+    transition: all 500ms ease;
+    overflow: hidden;
+
+    & header {
+        background: rgba(0,0,0, 0.5);
+        border-radius: 100%;
+        position: absolute;
+        width: 50px;
+        height: 50px;
+        top: -100px;
+        left: 0px;
+        color: white;
+    }
+
+    & header label {
+        font-size: 28px;
+        padding: 2px 15px;
+        cursor: pointer; 
+    }
+
+    & h1 {
+        color: white;
+        margin-left: 90px;
+        margin-bottom: 50px;
+    }
+
+    & span {
+        margin: 150px ;
+        color: gray;
+    }
+
+    & iframe {
+        margin-left: 300px ;
+    }
+`

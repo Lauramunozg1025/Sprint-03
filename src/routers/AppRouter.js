@@ -14,7 +14,7 @@ const AppRouter = () => {
 
   const dispatch = useDispatch();
 
-  const [checking, setChecking] = useState(true);
+
   const [login, setLogin] = useState(false)
 
   useEffect(() => {
@@ -28,16 +28,9 @@ const AppRouter = () => {
         setLogin(false)
 
       }
-      setChecking(false)
     })
-  },[dispatch, setChecking ,setLogin ])
+  },[setLogin ])
 
-  if(checking) {
-    <h1>Cargando...</h1>
-    
-  }else {
-    setChecking(true)
-  }
 
   return (
       <BrowserRouter >
